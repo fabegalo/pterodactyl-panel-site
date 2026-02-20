@@ -1,0 +1,135 @@
+﻿<!doctype html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Official landing page for Pterodactyl Panel Mobile: monitor servers, send commands, manage backups, and browse files from your phone."
+    />
+    <title>Pterodactyl Panel Mobile</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Fraunces:opsz,wght@9..144,500;9..144,700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="bg-shape bg-shape-a" aria-hidden="true"></div>
+    <div class="bg-shape bg-shape-b" aria-hidden="true"></div>
+
+    <header class="site-header">
+      <div class="wrap">
+        <a class="brand" href="#top">Pterodactyl Panel Mobile</a>
+        <nav class="actions">
+          <a class="btn btn-main" href="#download">Download</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="hero wrap">
+        <p class="eyebrow">Official Android companion for Pterodactyl servers</p>
+        <h1>Control your game server from anywhere.</h1>
+        <p class="lead">
+          Pterodactyl Panel Mobile lets you monitor status, run console commands, create backups,
+          and browse files directly from your phone.
+        </p>
+        <div class="hero-cta">
+          <a class="btn btn-main" href="#download">Get on Play Store</a>
+          <a class="btn btn-soft" href="#setup">How setup works</a>
+        </div>
+      </section>
+
+      <section class="wrap cards" id="features">
+        <article class="card">
+          <h2>Live Dashboard</h2>
+          <p>Track server status, CPU, memory, disk usage, players, and ping in one screen.</p>
+        </article>
+        <article class="card">
+          <h2>Console Commands</h2>
+          <p>Send commands remotely and follow console output in real time.</p>
+        </article>
+        <article class="card">
+          <h2>Backups</h2>
+          <p>Create, list, and delete server backups with a simple and safe flow.</p>
+        </article>
+        <article class="card">
+          <h2>File Manager (Alpha)</h2>
+          <p>Browse folders and files remotely. Feature is active and under continuous evolution.</p>
+        </article>
+        <article class="card">
+          <h2>Flexible Login</h2>
+          <p>Supports API URL, domain, and direct IP address with optional custom port.</p>
+        </article>
+        <article class="card">
+          <h2>Multilanguage</h2>
+          <p>Available in English, Portuguese, German, Spanish, Indonesian, Italian, Malay, Russian, and Thai.</p>
+        </article>
+      </section>
+
+      <section class="wrap panel" id="setup">
+        <h2>Setup in 3 steps</h2>
+        <ol>
+          <li>Open the app and enter your Pterodactyl API URL (or server IP).</li>
+          <li>Paste your API key from your panel account.</li>
+          <li>Select your server and start managing it remotely.</li>
+        </ol>
+        <p class="hint">
+          Accepted examples: <code>panel.example.com</code>, <code>https://panel.example.com</code>,
+          <code>192.168.0.10</code>, <code>http://192.168.0.10:8080</code>.
+        </p>
+      </section>
+
+      <section class="wrap split" id="download">
+        <div class="panel">
+          <h2>Download</h2>
+          <p>Install from Google Play to receive stable updates and security fixes.</p>
+          <p>
+            <a class="link" href="https://play.google.com/store/apps/details?id=com.fabegalo.panel" target="_blank" rel="noreferrer">
+              play.google.com/store/apps/details?id=com.fabegalo.panel
+            </a>
+          </p>
+        </div>
+        <div class="panel">
+          <h2>Support</h2>
+          <p>Questions, issues, or suggestions?</p>
+          <ul>
+            <li>Email: <a class="link" href="mailto:fabegalo@gmail.com">fabegalo@gmail.com</a></li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="wrap panel" id="release">
+        <h2>Latest release highlights</h2>
+        <ul>
+          <li>Improved app stability for smoother navigation.</li>
+          <li>More reliable backup creation flow.</li>
+          <li>Updated translations across supported languages.</li>
+          <li>General performance and bug-fix improvements.</li>
+        </ul>
+      </section>
+
+      <section class="wrap panel" id="legal">
+        <h2>Transparency and compliance</h2>
+        <p>
+          Privacy Policy: <a class="link" href="./privacy-policy.html">view document</a>.
+        </p>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap footer-grid">
+        <p><strong>Pterodactyl Panel Mobile</strong></p>
+        <p>Package: <code>com.fabegalo.panel</code></p>
+        <p id="year"></p>
+      </div>
+    </footer>
+
+    <script>
+      document.getElementById('year').textContent = 'Updated ' + new Date().getFullYear();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,256 @@
+﻿:root {
+  --ink: #132237;
+  --muted: #4e617a;
+  --paper: #f4f8ff;
+  --card: #ffffff;
+  --accent: #0f8f6f;
+  --accent-strong: #0a755b;
+  --accent-alt: #ff7a3d;
+  --line: #d9e4f4;
+  --shadow: 0 16px 36px rgba(19, 34, 55, 0.1);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Sora", "Segoe UI", sans-serif;
+  color: var(--ink);
+  background: radial-gradient(circle at 10% 10%, #e9fff6 0%, transparent 40%),
+    radial-gradient(circle at 90% 15%, #fff2e8 0%, transparent 35%),
+    var(--paper);
+  line-height: 1.55;
+}
+
+.bg-shape {
+  position: fixed;
+  z-index: -1;
+  filter: blur(40px);
+  opacity: 0.45;
+}
+
+.bg-shape-a {
+  top: -80px;
+  right: -60px;
+  width: 260px;
+  height: 260px;
+  background: #8de0c9;
+  border-radius: 50%;
+}
+
+.bg-shape-b {
+  bottom: -90px;
+  left: -80px;
+  width: 300px;
+  height: 300px;
+  background: #ffc7a8;
+  border-radius: 50%;
+}
+
+.wrap {
+  width: min(1080px, 92vw);
+  margin: 0 auto;
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  backdrop-filter: blur(8px);
+  background: rgba(244, 248, 255, 0.86);
+  border-bottom: 1px solid var(--line);
+}
+
+.site-header .wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+}
+
+.brand {
+  text-decoration: none;
+  color: var(--ink);
+  font-weight: 800;
+  letter-spacing: 0.2px;
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+}
+
+.btn {
+  text-decoration: none;
+  font-weight: 700;
+  border-radius: 999px;
+  padding: 10px 16px;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+}
+
+.btn-main {
+  background: linear-gradient(120deg, var(--accent), var(--accent-alt));
+  color: #fff;
+  box-shadow: var(--shadow);
+}
+
+.btn-soft {
+  color: var(--ink);
+  border: 1px solid var(--line);
+  background: #fff;
+}
+
+.hero {
+  padding: 64px 0 22px;
+}
+
+.eyebrow {
+  margin: 0;
+  color: var(--accent-strong);
+  text-transform: uppercase;
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  font-weight: 700;
+}
+
+h1,
+h2 {
+  font-family: "Fraunces", Georgia, serif;
+  line-height: 1.15;
+  letter-spacing: 0.2px;
+}
+
+h1 {
+  margin: 14px 0 14px;
+  font-size: clamp(2rem, 4vw, 3.15rem);
+}
+
+.lead {
+  max-width: 70ch;
+  color: var(--muted);
+  margin: 0;
+}
+
+.hero-cta {
+  margin-top: 24px;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  padding: 18px 0;
+}
+
+.card,
+.panel {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 18px;
+  box-shadow: var(--shadow);
+}
+
+.card h2,
+.panel h2 {
+  margin-top: 0;
+  margin-bottom: 8px;
+  font-size: 1.35rem;
+}
+
+.card p,
+.panel p,
+.panel li {
+  color: var(--muted);
+}
+
+.panel {
+  margin: 14px auto;
+}
+
+.panel ol,
+.panel ul {
+  margin-top: 0;
+  padding-left: 20px;
+}
+
+.hint {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px dashed var(--line);
+}
+
+code {
+  background: #edf3ff;
+  border: 1px solid #dce8ff;
+  border-radius: 6px;
+  padding: 2px 6px;
+  font-family: Consolas, "Courier New", monospace;
+  font-size: 0.92em;
+}
+
+.split {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.link {
+  color: var(--accent-strong);
+  text-decoration-thickness: 2px;
+}
+
+.site-footer {
+  margin-top: 24px;
+  border-top: 1px solid var(--line);
+  background: #fff;
+}
+
+.footer-grid {
+  padding: 16px 0 26px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 900px) {
+  .cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .site-header .wrap {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .cards,
+  .split {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    padding-top: 36px;
+  }
+}
