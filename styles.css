@@ -1,70 +1,96 @@
-﻿:root {
-  --ink: #132237;
-  --muted: #4e617a;
-  --paper: #f4f8ff;
-  --card: #ffffff;
-  --accent: #0f8f6f;
-  --accent-strong: #0a755b;
-  --accent-alt: #ff7a3d;
-  --line: #d9e4f4;
-  --shadow: 0 16px 36px rgba(19, 34, 55, 0.1);
+/* Palette taken from the app's own theme, so the page and the icon it links to
+   look like the same product. Dark mode is not decoration here: the app ships
+   both themes, and a blinding white page from a dark phone at 2am is exactly
+   when someone is checking on a crashed server. */
+:root {
+  color-scheme: light dark;
+
+  --brand: #2f6fed;
+  --brand-deep: #1e56c9;
+  --brand-bright: #4c86f7;
+
+  --ink: #14203a;
+  --muted: #55637d;
+  --paper: #f5f7fb;
+  --surface: #ffffff;
+  --line: #dfe6f2;
+  --code-bg: #eef3fd;
+  --shadow: 0 10px 30px rgba(20, 32, 58, 0.08);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --ink: #e8edf7;
+    --muted: #9aa8c0;
+    --paper: #0e1218;
+    --surface: #161b24;
+    --line: #262e3b;
+    --code-bg: #1b2230;
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+    --brand: #6ea1ff;
+    --brand-deep: #4c86f7;
+  }
 }
 
 * {
   box-sizing: border-box;
 }
 
-html,
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  * {
+    transition: none !important;
+  }
+}
+
 body {
   margin: 0;
-  padding: 0;
-}
-
-body {
-  font-family: "Sora", "Segoe UI", sans-serif;
+  /* System stack: no font CDN, so the page has no third-party connection to
+     disclose and nothing blocking the first paint. */
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
   color: var(--ink);
-  background: radial-gradient(circle at 10% 10%, #e9fff6 0%, transparent 40%),
-    radial-gradient(circle at 90% 15%, #fff2e8 0%, transparent 35%),
-    var(--paper);
-  line-height: 1.55;
-}
-
-.bg-shape {
-  position: fixed;
-  z-index: -1;
-  filter: blur(40px);
-  opacity: 0.45;
-}
-
-.bg-shape-a {
-  top: -80px;
-  right: -60px;
-  width: 260px;
-  height: 260px;
-  background: #8de0c9;
-  border-radius: 50%;
-}
-
-.bg-shape-b {
-  bottom: -90px;
-  left: -80px;
-  width: 300px;
-  height: 300px;
-  background: #ffc7a8;
-  border-radius: 50%;
+  background: var(--paper);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
 }
 
 .wrap {
-  width: min(1080px, 92vw);
+  width: min(1060px, 92vw);
   margin: 0 auto;
 }
+
+/* Keyboard users land here first; it stays out of the way until focused. */
+.skip {
+  position: absolute;
+  left: -9999px;
+  background: var(--brand);
+  color: #fff;
+  padding: 10px 16px;
+  border-radius: 0 0 10px 0;
+  z-index: 20;
+}
+
+.skip:focus {
+  left: 0;
+  top: 0;
+}
+
+/* --- header --------------------------------------------------------------- */
 
 .site-header {
   position: sticky;
   top: 0;
   z-index: 10;
-  backdrop-filter: blur(8px);
-  background: rgba(244, 248, 255, 0.86);
+  backdrop-filter: blur(10px);
+  background: color-mix(in srgb, var(--paper) 88%, transparent);
   border-bottom: 1px solid var(--line);
 }
 
@@ -72,27 +98,54 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 12px 0;
+  gap: 12px;
+  padding: 10px 0;
 }
 
 .brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
   text-decoration: none;
   color: var(--ink);
-  font-weight: 800;
-  letter-spacing: 0.2px;
+  font-weight: 700;
+  font-size: 0.98rem;
+}
+
+.brand img {
+  border-radius: 7px;
+  flex-shrink: 0;
 }
 
 .actions {
   display: flex;
-  gap: 10px;
+  align-items: center;
+  gap: 6px;
 }
 
-.btn {
+.nav-link {
+  color: var(--muted);
   text-decoration: none;
-  font-weight: 700;
-  border-radius: 999px;
-  padding: 10px 16px;
-  transition: transform 0.18s ease, box-shadow 0.18s ease;
+  font-size: 0.92rem;
+  padding: 8px 10px;
+  border-radius: 8px;
+}
+
+.nav-link:hover {
+  color: var(--ink);
+  background: var(--code-bg);
+}
+
+/* --- buttons -------------------------------------------------------------- */
+
+.btn {
+  display: inline-block;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  border-radius: 10px;
+  padding: 11px 18px;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
 .btn:hover {
@@ -100,7 +153,7 @@ body {
 }
 
 .btn-main {
-  background: linear-gradient(120deg, var(--accent), var(--accent-alt));
+  background: linear-gradient(135deg, var(--brand-bright), var(--brand-deep));
   color: #fff;
   box-shadow: var(--shadow);
 }
@@ -108,73 +161,87 @@ body {
 .btn-soft {
   color: var(--ink);
   border: 1px solid var(--line);
-  background: #fff;
+  background: var(--surface);
 }
 
+/* --- hero ----------------------------------------------------------------- */
+
 .hero {
-  padding: 64px 0 22px;
+  padding: 72px 0 34px;
+  max-width: 780px;
 }
 
 .eyebrow {
   margin: 0;
-  color: var(--accent-strong);
+  color: var(--brand);
   text-transform: uppercase;
-  font-size: 0.78rem;
-  letter-spacing: 0.14em;
+  font-size: 0.74rem;
+  letter-spacing: 0.13em;
   font-weight: 700;
 }
 
-h1,
-h2 {
-  font-family: "Fraunces", Georgia, serif;
-  line-height: 1.15;
-  letter-spacing: 0.2px;
+h1 {
+  margin: 14px 0;
+  font-size: clamp(2.1rem, 5vw, 3.3rem);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
 }
 
-h1 {
-  margin: 14px 0 14px;
-  font-size: clamp(2rem, 4vw, 3.15rem);
+h2 {
+  font-size: 1.3rem;
+  letter-spacing: -0.01em;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+h3 {
+  font-size: 1.02rem;
+  margin: 0 0 10px;
 }
 
 .lead {
-  max-width: 70ch;
   color: var(--muted);
+  font-size: 1.1rem;
   margin: 0;
 }
 
 .hero-cta {
-  margin-top: 24px;
+  margin-top: 28px;
   display: flex;
   gap: 12px;
   flex-wrap: wrap;
 }
 
+.micro {
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.hero .micro {
+  margin-top: 16px;
+}
+
+/* --- blocks --------------------------------------------------------------- */
+
 .cards {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 14px;
-  padding: 18px 0;
+  padding: 10px 0;
 }
 
 .card,
 .panel {
-  background: var(--card);
+  background: var(--surface);
   border: 1px solid var(--line);
-  border-radius: 18px;
-  padding: 18px;
-  box-shadow: var(--shadow);
-}
-
-.card h2,
-.panel h2 {
-  margin-top: 0;
-  margin-bottom: 8px;
-  font-size: 1.35rem;
+  border-radius: 16px;
+  padding: 22px;
 }
 
 .card p,
 .panel p,
-.panel li {
+.panel li,
+.panel summary + p {
   color: var(--muted);
 }
 
@@ -182,51 +249,126 @@ h1 {
   margin: 14px auto;
 }
 
-.panel ol,
-.panel ul {
-  margin-top: 0;
-  padding-left: 20px;
-}
-
-.hint {
-  margin-top: 14px;
-  padding-top: 14px;
-  border-top: 1px dashed var(--line);
-}
-
-code {
-  background: #edf3ff;
-  border: 1px solid #dce8ff;
-  border-radius: 6px;
-  padding: 2px 6px;
-  font-family: Consolas, "Courier New", monospace;
-  font-size: 0.92em;
-}
-
 .split {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 14px;
+  align-items: start;
+}
+
+/* Two sign-in routes side by side, because presenting them in sequence made
+   the manual one look like a fallback for when the first fails. */
+.ways {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 18px;
+}
+
+.way {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 18px;
+  background: color-mix(in srgb, var(--paper) 55%, transparent);
+}
+
+.way ol {
+  margin: 0;
+  padding-left: 20px;
+  color: var(--muted);
+}
+
+.way li {
+  margin-bottom: 4px;
+}
+
+.badge {
+  display: inline-block;
+  background: var(--brand);
+  color: #fff;
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 3px 8px;
+  border-radius: 999px;
+  vertical-align: middle;
+  margin-right: 6px;
+}
+
+.note {
+  font-size: 0.9rem;
+  margin-bottom: 0;
+}
+
+.hint {
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px dashed var(--line);
+  font-size: 0.92rem;
+}
+
+details {
+  border-top: 1px solid var(--line);
+  padding: 14px 0 2px;
+}
+
+details:first-of-type {
+  border-top: none;
+}
+
+summary {
+  cursor: pointer;
+  font-weight: 600;
+  list-style-position: outside;
+}
+
+summary::marker {
+  color: var(--brand);
+}
+
+details p {
+  margin: 10px 0 4px;
+}
+
+code {
+  background: var(--code-bg);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 2px 6px;
+  font-family: ui-monospace, Consolas, "Courier New", monospace;
+  font-size: 0.88em;
+  /* A long address must wrap rather than push the page sideways on a phone. */
+  overflow-wrap: anywhere;
 }
 
 .link {
-  color: var(--accent-strong);
-  text-decoration-thickness: 2px;
+  color: var(--brand);
+  text-underline-offset: 3px;
 }
 
+/* --- footer --------------------------------------------------------------- */
+
 .site-footer {
-  margin-top: 24px;
+  margin-top: 32px;
   border-top: 1px solid var(--line);
-  background: #fff;
+  background: var(--surface);
 }
 
 .footer-grid {
-  padding: 16px 0 26px;
+  padding: 26px 0 34px;
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 10px;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 16px;
   font-size: 0.9rem;
+  align-items: start;
 }
+
+.footer-grid p {
+  margin: 0;
+}
+
+/* --- responsive ----------------------------------------------------------- */
 
 @media (max-width: 900px) {
   .cards {
@@ -238,19 +380,33 @@ code {
   }
 }
 
-@media (max-width: 640px) {
-  .site-header .wrap {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
-  }
-
+@media (max-width: 680px) {
   .cards,
-  .split {
+  .split,
+  .ways {
     grid-template-columns: 1fr;
   }
 
   .hero {
-    padding-top: 36px;
+    padding-top: 44px;
+  }
+
+  /* The header stays one row. Stacking it turned the sticky bar into a block
+     that ate a third of a small screen on every scroll. */
+  .nav-link {
+    display: none;
+  }
+
+  .brand span {
+    font-size: 0.9rem;
+  }
+
+  .btn {
+    padding: 10px 14px;
+  }
+
+  .hero-cta .btn {
+    width: 100%;
+    text-align: center;
   }
 }

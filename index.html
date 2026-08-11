@@ -1,135 +1,264 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en-US">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="light dark" />
+    <title>Pterodactyl Panel Mobile — manage your game server from your phone</title>
     <meta
       name="description"
-      content="Official landing page for Pterodactyl Panel Mobile: monitor servers, send commands, manage backups, and browse files from your phone."
+      content="Android app for Pterodactyl panels. Watch the console live, send commands, edit configuration files, and create backups from your phone. Sign in with your panel account — no API key needed."
     />
-    <title>Pterodactyl Panel Mobile</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Fraunces:opsz,wght@9..144,500;9..144,700&display=swap"
-      rel="stylesheet"
+    <link rel="canonical" href="https://fabegalo.github.io/pterodactyl-panel-site/" />
+
+    <!-- Link previews. Most people meet this page as a URL pasted into a
+         Discord server, and without these it arrives as a bare blue link. -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Pterodactyl Panel Mobile" />
+    <meta
+      property="og:description"
+      content="Watch the console live, send commands, edit files, and create backups for your game server — from your phone."
     />
+    <meta property="og:image" content="https://fabegalo.github.io/pterodactyl-panel-site/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:url" content="https://fabegalo.github.io/pterodactyl-panel-site/" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="icon" href="./icon-32.png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="./icon-180.png" />
     <link rel="stylesheet" href="styles.css" />
+
+    <!-- Tells Google this page is about an app, so the result can carry the
+         icon and the store link rather than a plain title. -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Pterodactyl Panel Mobile",
+        "operatingSystem": "Android",
+        "applicationCategory": "UtilitiesApplication",
+        "url": "https://play.google.com/store/apps/details?id=com.fabegalo.panel",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+      }
+    </script>
   </head>
   <body>
-    <div class="bg-shape bg-shape-a" aria-hidden="true"></div>
-    <div class="bg-shape bg-shape-b" aria-hidden="true"></div>
+    <a class="skip" href="#main">Skip to content</a>
 
     <header class="site-header">
       <div class="wrap">
-        <a class="brand" href="#top">Pterodactyl Panel Mobile</a>
-        <nav class="actions">
-          <a class="btn btn-main" href="#download">Download</a>
+        <a class="brand" href="#top">
+          <img src="./icon-32.png" alt="" width="28" height="28" />
+          <span>Pterodactyl Panel Mobile</span>
+        </a>
+        <nav class="actions" aria-label="Main">
+          <a class="nav-link" href="#features">Features</a>
+          <a class="nav-link" href="#setup">Setup</a>
+          <a class="btn btn-main" href="#download">Get the app</a>
         </nav>
       </div>
     </header>
 
-    <main id="top">
-      <section class="hero wrap">
-        <p class="eyebrow">Official Android companion for Pterodactyl servers</p>
-        <h1>Control your game server from anywhere.</h1>
+    <main id="main">
+      <section class="hero wrap" id="top">
+        <p class="eyebrow">Android app for Pterodactyl panels</p>
+        <h1>Your game server, in your pocket.</h1>
         <p class="lead">
-          Pterodactyl Panel Mobile lets you monitor status, run console commands, create backups,
-          and browse files directly from your phone.
+          Watch the console live, send commands, fix a line of configuration, and start a
+          backup — without opening a laptop. Sign in with the account you already use on
+          your panel.
         </p>
         <div class="hero-cta">
-          <a class="btn btn-main" href="#download">Get on Play Store</a>
-          <a class="btn btn-soft" href="#setup">How setup works</a>
+          <a class="btn btn-main" href="https://play.google.com/store/apps/details?id=com.fabegalo.panel" target="_blank" rel="noreferrer">
+            Get it on Google Play
+          </a>
+          <a class="btn btn-soft" href="#setup">See how sign-in works</a>
         </div>
+        <p class="micro">Free · 12 languages · Optional one-time purchase to remove ads</p>
       </section>
 
-      <section class="wrap cards" id="features">
+      <section class="wrap cards" id="features" aria-label="Features">
         <article class="card">
-          <h2>Live Dashboard</h2>
-          <p>Track server status, CPU, memory, disk usage, players, and ping in one screen.</p>
+          <h2>Live console</h2>
+          <p>
+            The server's history loads the moment you open the tab, and new output arrives as
+            it happens. Type a command and read the answer in the same place.
+          </p>
         </article>
         <article class="card">
-          <h2>Console Commands</h2>
-          <p>Send commands remotely and follow console output in real time.</p>
+          <h2>Dashboard</h2>
+          <p>
+            Power state, CPU, memory and disk against your plan's limits. Minecraft servers
+            also show players online, version and ping.
+          </p>
+        </article>
+        <article class="card">
+          <h2>File manager</h2>
+          <p>
+            Browse folders, open configuration files in a built-in editor, rename, delete,
+            create folders, and copy a signed download link.
+          </p>
         </article>
         <article class="card">
           <h2>Backups</h2>
-          <p>Create, list, and delete server backups with a simple and safe flow.</p>
+          <p>
+            Create, list and delete backups. Locked backups are marked, so you can tell what
+            your panel's retention policy will not touch.
+          </p>
         </article>
         <article class="card">
-          <h2>File Manager (Alpha)</h2>
-          <p>Browse folders and files remotely. Feature is active and under continuous evolution.</p>
+          <h2>Several servers, one app</h2>
+          <p>
+            Switch servers from the dashboard in one tap. Administrator accounts can list
+            every server on the panel, not only the ones they own.
+          </p>
         </article>
         <article class="card">
-          <h2>Flexible Login</h2>
-          <p>Supports API URL, domain, and direct IP address with optional custom port.</p>
-        </article>
-        <article class="card">
-          <h2>Multilanguage</h2>
-          <p>Available in English, Portuguese, German, Spanish, Indonesian, Italian, Malay, Russian, and Thai.</p>
+          <h2>Yours to configure</h2>
+          <p>
+            Light and dark theme, and 12 languages: English, Portuguese, Spanish, German,
+            French, Italian, Polish, Turkish, Russian, Indonesian, Malay and Thai.
+          </p>
         </article>
       </section>
 
       <section class="wrap panel" id="setup">
-        <h2>Setup in 3 steps</h2>
-        <ol>
-          <li>Open the app and enter your Pterodactyl API URL (or server IP).</li>
-          <li>Paste your API key from your panel account.</li>
-          <li>Select your server and start managing it remotely.</li>
-        </ol>
+        <h2>Signing in</h2>
+        <p>Two ways in. Pick whichever you are comfortable with.</p>
+
+        <div class="ways">
+          <div class="way">
+            <h3><span class="badge">Recommended</span> Your panel account</h3>
+            <ol>
+              <li>Type your panel address.</li>
+              <li>Sign in on your panel's own login page, inside the app.</li>
+              <li>The app creates its API key for you and remembers it.</li>
+            </ol>
+            <p class="note">
+              The login page is your panel's, not a copy — so two-factor authentication,
+              Cloudflare and SSO keep working. Your password is never seen by the app.
+            </p>
+          </div>
+
+          <div class="way">
+            <h3>An API key you made yourself</h3>
+            <ol>
+              <li>Create a key under Account → API Credentials in your panel.</li>
+              <li>Type your panel address in the app.</li>
+              <li>Open “Use an API key” and paste it.</li>
+            </ol>
+            <p class="note">
+              Kept for anyone who would rather not type a password into an app, or who wants
+              to manage the key by hand.
+            </p>
+          </div>
+        </div>
+
         <p class="hint">
-          Accepted examples: <code>panel.example.com</code>, <code>https://panel.example.com</code>,
-          <code>192.168.0.10</code>, <code>http://192.168.0.10:8080</code>.
+          The address can be a domain or an IP, with or without a scheme or port —
+          <code>panel.example.com</code>, <code>https://panel.example.com</code>,
+          <code>192.168.0.10</code>, <code>http://192.168.0.10:8080</code>. The app works
+          out the rest.
         </p>
       </section>
 
       <section class="wrap split" id="download">
         <div class="panel">
           <h2>Download</h2>
-          <p>Install from Google Play to receive stable updates and security fixes.</p>
+          <p>Install from Google Play to get updates and security fixes automatically.</p>
           <p>
-            <a class="link" href="https://play.google.com/store/apps/details?id=com.fabegalo.panel" target="_blank" rel="noreferrer">
-              play.google.com/store/apps/details?id=com.fabegalo.panel
+            <a class="btn btn-main" href="https://play.google.com/store/apps/details?id=com.fabegalo.panel" target="_blank" rel="noreferrer">
+              Get it on Google Play
             </a>
+          </p>
+          <p class="note">
+            The app is free and supported by ads. A single purchase removes them for good —
+            no subscription.
           </p>
         </div>
         <div class="panel">
           <h2>Support</h2>
-          <p>Questions, issues, or suggestions?</p>
-          <ul>
-            <li>Email: <a class="link" href="mailto:fabegalo@gmail.com">fabegalo@gmail.com</a></li>
-          </ul>
+          <p>
+            Something broken, or missing? Write to me and I answer personally — tell me your
+            panel version and what you were doing, it saves a round trip.
+          </p>
+          <p>
+            <a class="link" href="mailto:fabegalo@gmail.com">fabegalo@gmail.com</a>
+          </p>
         </div>
       </section>
 
-      <section class="wrap panel" id="release">
-        <h2>Latest release highlights</h2>
-        <ul>
-          <li>Improved app stability for smoother navigation.</li>
-          <li>More reliable backup creation flow.</li>
-          <li>Updated translations across supported languages.</li>
-          <li>General performance and bug-fix improvements.</li>
-        </ul>
+      <section class="wrap panel" id="faq">
+        <h2>Questions people actually ask</h2>
+
+        <details>
+          <summary>Do I have to give the app my panel password?</summary>
+          <p>
+            No. The app opens your panel's real login page and never reads what you type into
+            it. What it keeps afterwards is an API key, stored in the phone's encrypted
+            keystore.
+          </p>
+        </details>
+
+        <details>
+          <summary>Does it work with a self-hosted panel on my home network?</summary>
+          <p>
+            Yes, as long as your phone can reach it. Plain <code>http://</code> addresses and
+            custom ports are supported.
+          </p>
+        </details>
+
+        <details>
+          <summary>Is it only for Minecraft?</summary>
+          <p>
+            No. Anything Pterodactyl hosts works: console, files, backups and power controls
+            are the same everywhere. The extra card with players and ping only appears for
+            Minecraft servers, because that is where the query protocol exists.
+          </p>
+        </details>
+
+        <details>
+          <summary>I paid to remove ads and reinstalled. Do I pay again?</summary>
+          <p>
+            No. The purchase is tied to your Google account. Reinstall, open the app, and it
+            restores itself; there is also a restore button on the Remove Ads screen.
+          </p>
+        </details>
+
+        <details>
+          <summary>Is there an iPhone version?</summary>
+          <p>Not yet. The app is Android only for now.</p>
+        </details>
       </section>
 
       <section class="wrap panel" id="legal">
-        <h2>Transparency and compliance</h2>
+        <h2>Privacy</h2>
         <p>
-          Privacy Policy: <a class="link" href="./privacy-policy.html">view document</a>.
+          Your panel address and API key stay on your phone, in encrypted storage. They are
+          sent to your panel and to nowhere else. The full document explains what the ads and
+          analytics components collect:
+          <a class="link" href="./privacy-policy.html">Privacy Policy</a>.
         </p>
       </section>
     </main>
 
     <footer class="site-footer">
       <div class="wrap footer-grid">
-        <p><strong>Pterodactyl Panel Mobile</strong></p>
-        <p>Package: <code>com.fabegalo.panel</code></p>
-        <p id="year"></p>
+        <p><strong>Pterodactyl Panel Mobile</strong><br /><span class="micro">An independent app for Pterodactyl panels. Not affiliated with the Pterodactyl project.</span></p>
+        <p>
+          <a class="link" href="./privacy-policy.html">Privacy Policy</a><br />
+          <a class="link" href="mailto:fabegalo@gmail.com">Contact</a>
+        </p>
+        <p class="micro">
+          Package <code>com.fabegalo.panel</code><br />
+          <span id="year"></span>
+        </p>
       </div>
     </footer>
 
     <script>
-      document.getElementById('year').textContent = 'Updated ' + new Date().getFullYear();
+      document.getElementById('year').textContent = '© ' + new Date().getFullYear();
     </script>
   </body>
 </html>
