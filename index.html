@@ -25,7 +25,13 @@
     <meta property="og:url" content="https://fabegalo.github.io/pterodactyl-panel-site/" />
     <meta name="twitter:card" content="summary_large_image" />
 
-    <link rel="icon" href="./icon-32.png" sizes="32x32" />
+    <!-- The tab mark is the hexagon alone. The full app icon has the sliders
+         and the bird in it too, which is right at launcher size and unreadable
+         once a browser draws it at 16px. The home-screen icon keeps the full
+         artwork, because 180px has room for it. -->
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="./favicon-32.png" sizes="32x32" />
+    <link rel="icon" href="./favicon-16.png" sizes="16x16" />
     <link rel="apple-touch-icon" href="./icon-180.png" />
     <link rel="stylesheet" href="styles.css" />
 
@@ -49,7 +55,7 @@
     <header class="site-header">
       <div class="wrap">
         <a class="brand" href="#top">
-          <img src="./icon-32.png" alt="" width="28" height="28" />
+          <img src="./favicon.svg" alt="" width="28" height="28" />
           <span>Pterodactyl Panel Mobile</span>
         </a>
         <nav class="actions" aria-label="Main">
